@@ -33,7 +33,7 @@ jobs:
         run: ls -la dist/api-apuestas  # Asegúrate de que esta ruta sea correcta
 
       - name: 🐳 Build Docker image with NGINX
-        run: docker build -t ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }} .
+        run: docker build -t ${{ secrets.DOCKER_USER }}api-apuestas-angular:${{ github.sha }} .
 
       - name: 🧱 List Docker images
         run: docker images
@@ -45,4 +45,4 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: 🚀 Push Docker image
-        run: docker push ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }}
+        run: docker push ${{ secrets.DOCKER_USER }}api-apuestas-angular:${{ github.sha }}
