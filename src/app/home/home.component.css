@@ -1,0 +1,260 @@
+/* Estilo principal */
+.main-container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+  color: #fff; /* Texto blanco */
+  font-family: 'Segoe UI', sans-serif;
+  background-color: goldenrod;
+}
+
+/* Título de bienvenida */
+.welcome-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #ff5722;
+  font-weight: bold;
+}
+
+/* Formularios */
+.search-form,
+.song-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background: black; /* Cuadro oscuro para resaltar el dorado */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2rem;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Estilo de los inputs */
+.input {
+  padding: 1rem;
+  border: 2px solid #FFD700; /* Borde dorado */
+  border-radius: 8px;
+  background: #333333; /* Fondo oscuro para los campos */
+  color: #fff; /* Texto blanco */
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease; /* Animación suave para el foco */
+}
+
+/* Efecto al poner el foco en los campos de entrada */
+.input:focus {
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5); /* Efecto azul de foco */
+  border-color: #2196f3; /* Borde azul cuando se enfoca */
+  outline: none;
+}
+
+/* Estilo de los botones */
+.submit-btn,
+.clear-btn {
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Botón de buscar */
+.submit-btn {
+  background: #2196f3; /* Botones azules */
+  color: white;
+}
+
+/* Botón de limpiar */
+.clear-btn {
+  background: #ff1744; /* Botón rojo */
+  color: white;
+}
+
+.clear-btn:hover {
+  background: #d50000; /* Rojo más oscuro */
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Botones de búsqueda alineados a la derecha */
+.search-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.reactions button {
+  background: #f7f7f7; /* Fondo blanco para los botones */
+  color: #2196f3; /* Azul para los iconos */
+  border: none;
+  padding: 0.5rem 1rem;
+  margin: 0.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.reactions button:hover {
+  background: #e3f2fd; /* Fondo azul más claro en hover */
+  transform: scale(1.05); /* Efecto de escala al pasar el mouse */
+}
+
+.reactions .material-icons {
+  font-size: 1.5rem;
+}
+
+.comentario-form button {
+  background: #2196f3; /* Azul para el botón de comentar */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comentario-form button:hover {
+  background: #1976d2; /* Azul más oscuro */
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Estilo de la paginación */
+.paginacion {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.paginacion button {
+  padding: 0.5rem 1rem;
+  background: #2196f3; /* Azul para los botones de paginación */
+  border: none;
+  margin: 0 0.5rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.paginacion button:hover {
+  background: #1976d2; /* Azul más oscuro */
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el mouse */
+}
+
+.paginacion span {
+  margin: 0 1rem;
+  font-weight: bold;
+}
+
+/* Animación fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo de los iconos en los inputs */
+.input-icon {
+  font-size: 1.5rem;
+  color: #FFD700; /* Iconos dorados para resaltar */
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  transform: translateY(-50%);
+}
+
+/* Contenedor de los inputs con iconos */
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Estilo de los inputs para comentario */
+.comentario-input {
+  padding: 1rem;
+  border: 2px solid #FFD700; /* Borde dorado */
+  border-radius: 8px;
+  background: black; /* Fondo oscuro para los campos */
+  color: #fff; /* Texto blanco */
+  font-size: 1rem;
+  transition: box-shadow 0.3s ease; /* Animación suave para el foco */
+}
+
+/* Efecto al poner el foco en los campos de entrada */
+.comentario-input:focus {
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5); /* Efecto azul de foco */
+  border-color: #2196f3; /* Borde azul cuando se enfoca */
+  outline: none;
+}
+
+/* Estilo de los botones */
+.comentario-form button {
+  background: #2196f3; /* Azul para el botón de comentar */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.comentario-form button:hover {
+  background: #1976d2; /* Azul más oscuro */
+  transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
+}
+
+/* Estilo de los comentarios */
+.comentarios div {
+  padding: 1rem;
+  background: #444; /* Fondo oscuro para resaltar */
+  border: 2px solid #FFD700; /* Borde dorado */
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+/* Efecto de hover para comentarios */
+.comentarios div:hover {
+  transform: scale(1.02); /* Aumenta ligeramente el tamaño al pasar el mouse */
+  box-shadow: 0 0 10px rgba(33, 150, 243, 0.5); /* Sombra azul al pasar el mouse */
+}
+
+/* Nombre de usuario en negrita y color destacado */
+.comentarios div strong {
+  font-weight: bold;
+  color: #FFD700; /* Nombre de usuario en dorado */
+  font-size: 1.1rem;
+}
+
+/* Estilo de los comentarios cuando no son del usuario actual */
+.comentarios div:not(.mi-comentario) {
+  background: black /* Fondo un poco más oscuro */
+}
+
+/* Iconos de reacciones dentro de los comentarios */
+.comentarios div .reaction-icons {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comentarios div .reaction-icons i {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto al pasar sobre los iconos de reacciones */
+.comentarios div .reaction-icons i:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,127 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e1e2f, #3b3b5c);
+  padding: 1rem;
+}
+
+.register-card {
+  background: #ffffff0a;
+  backdrop-filter: blur(12px);
+  border: 1px solid #ffffff22;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  color: #f1f1f1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.logo {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #f0db4f;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  color: #ccc;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  background: #2c2c3e;
+  color: #fff;
+  font-size: 1rem;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+input:focus {
+  outline: 2px solid #f0db4f;
+  background-color: #33334d;
+}
+
+.hint {
+  font-size: 0.75rem;
+  color: #aaa;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.error {
+  color: #ff4d4d;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.register-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #f0db4f;
+  color: #1e1e2f;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover:not(:disabled) {
+  background-color: #ffe26b;
+}
+
+.register-button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+.footer-links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.footer-links a {
+  color: #f0db4f;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffe26b;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

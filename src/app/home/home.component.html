@@ -1,0 +1,86 @@
+<div class="main-container">
+  <!-- Título de bienvenida con emojis de apuestas -->
+  <h2 class="welcome-title">Bienvenido, {{ username }} 🏠🎰💰</h2>
+
+  <!-- Buscador -->
+  <form class="search-form" (submit)="buscarApuestas(); $event.preventDefault()">
+    <div class="input-wrapper">
+      <input type="text" class="input search-input" placeholder="Buscar apuestas 🔍"
+        [(ngModel)]="terminoBusqueda" name="busqueda" />
+    </div>
+    <div class="search-buttons">
+      <button type="submit" class="submit-btn">Buscar 🎲</button>
+      <button type="button" class="clear-btn" (click)="limpiarBusqueda()">Limpiar 💸</button>
+    </div>
+  </form>
+
+  <!-- Formulario de apuesta -->
+  <form class="apuesta-form" (submit)="addApuesta(); $event.preventDefault()">
+    <div class="input-wrapper">
+      <input type="text" class="input" placeholder="Nombre de la apuesta 🏅" [(ngModel)]="apuestaNombre" name="nombre" />
+    </div>
+    <div class="input-wrapper">
+      <input type="text" class="input" placeholder="Descripción de la apuesta 🎯" [(ngModel)]="apuestaDescripcion"
+        name="descripcion" />
+    </div>
+    <div class="input-wrapper">
+      <input type="text" class="input" placeholder="Link de la apuesta 🔗" [(ngModel)]="apuestaLink" name="link" />
+    </div>
+    <button type="submit" class="submit-btn">Agregar apuesta 🏆</button>
+  </form>
+
+  <!-- Lista de apuestas -->
+  <div class="apuesta-card" *ngFor="let a of apuestas">
+    <div class="apuesta-info">
+      <h3>{{ a.descripcion }} 🎰</h3>
+      <p>Publicado por: {{ a.postedBy?.username || 'Desconocido' }}</p>
+      <a [href]="a.link" target="_blank">Ver Apuesta 🔗</a>
+      <p *ngIf="a.reaccionMasVotada">
+        🌟 Reacción más votada: <strong>{{ a.reaccionMasVotada }}</strong>
+      </p>
+    </div>
+
+    <!-- ✅ Reacciones con emojis -->
+    <div class="reactions">
+      <button class="reaction-btn" (click)="reaccionar(a.id, 1)">
+        <span role="img" aria-label="me gusta">❤️</span> Me gusta
+      </button>
+      <button class="reaction-btn" (click)="reaccionar(a.id, 2)">
+        <span role="img" aria-label="no me gusta">👎</span> No me gusta
+      </button>
+      <button class="reaction-btn" (click)="reaccionar(a.id, 3)">
+        <span role="img" aria-label="odio">😡</span> Odio
+      </button>
+    </div>
+
+    <!-- Comentarios -->
+    <div class="comentarios" *ngIf="a.comentarios?.length">
+      <div *ngFor="let comentario of a.comentarios">
+        <strong>{{ comentario.nombreUsuario }}:</strong> {{ comentario.contenido }}
+      </div>
+    </div>
+
+    <!-- Agregar comentario -->
+  <form class="comentario-form" (submit)="crearComentario(a); $event.preventDefault()">
+  <div class="input-wrapper">
+    <input type="text" [(ngModel)]="a.nuevoComentario" [name]="'comentario' + a.id" class="input comentario-input"
+      placeholder="Escribe un comentario 🎯..." />
+  </div>
+  <button type="submit">
+    Comentar 📝
+  </button>
+</form>
+
+  </div>
+
+  <!-- Paginación -->
+  <div class="paginacion">
+    <button (click)="paginaActual = paginaActual - 1; getApuestas()" [disabled]="paginaActual === 0">
+      ⬅️ Anterior
+    </button>
+    <span>Página {{ paginaActual + 1 }} de {{ totalPaginas }}</span>
+    <button (click)="paginaActual = paginaActual + 1; getApuestas()" [disabled]="paginaActual + 1 >= totalPaginas">
+      Siguiente ➡️
+    </button>
+  </div>
+</div>
