@@ -18,7 +18,7 @@ import Swal from 'sweetalert2';
 
 export class UserService {
 
-  apiURL = 'http://localhost:8080/';
+  apiURL = 'https://apuestas-spring.onrender.com/';
 
   constructor(
     private http: HttpClient,
