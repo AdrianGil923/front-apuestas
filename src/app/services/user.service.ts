@@ -154,7 +154,7 @@ export class UserService {
   createBaseURL(): String {
 
     // call process to create base URL
-    var baseURL = "http://localhost:4200/reset-password";
+    var baseURL = "https://apuestas-spring.onrender.com/reset-password";
 
     return baseURL;
   }
