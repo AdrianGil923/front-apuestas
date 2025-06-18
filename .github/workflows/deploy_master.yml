@@ -30,19 +30,19 @@ jobs:
         run: npm run build --prod
 
       - name: 📁 List Angular build output
-        run: ls -la dist/api-apuestas  # Cambié esta línea para que apunte a la ruta correcta
+        run: ls -la dist/api-apuestas  # Ruta correcta aquí
 
       - name: 🐳 Build Docker image with NGINX
-        run: docker build -t ${{ secrets.DOCKER_USER }}bethub-angular:${{ github.sha }} .
+        run: docker build -t ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }} .
 
       - name: 🧱 List Docker images
         run: docker images
 
       - name: 🔐 Docker login
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
-          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-        run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: 🚀 Push Docker image
-        run: docker push ${{ secrets.DOCKER_USER }}bethub-angular:${{ github.sha }}
+        run: docker push ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }}
