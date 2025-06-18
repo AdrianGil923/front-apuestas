@@ -35,6 +35,7 @@ jobs:
       - name: 🐳 Build Docker image with NGINX
         run: docker build -t ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }} .
 
+
       - name: 🧱 List Docker images
         run: docker images
 
