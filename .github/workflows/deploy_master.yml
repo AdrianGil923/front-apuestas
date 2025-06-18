@@ -30,7 +30,7 @@ jobs:
         run: npm run build --prod
 
       - name: 📁 List Angular build output
-        run: ls -la dist/bethub/browser
+        run: ls -la dist/api-apuestas  # Cambié esta línea para que apunte a la ruta correcta
 
       - name: 🐳 Build Docker image with NGINX
         run: docker build -t ${{ secrets.DOCKER_USER }}/bethub-angular:${{ github.sha }} .
