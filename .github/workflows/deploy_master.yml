@@ -1,10 +1,10 @@
 name: CI/CD Deploy Angular Docker
 
-on:  
-  push: 
+on: 
+  push:
     branches: [ "master" ]
-    
-jobs:     
+
+jobs:
   ci_cd_deploy_angular:
     runs-on: ubuntu-latest
 
@@ -30,20 +30,19 @@ jobs:
         run: npm run build --prod
 
       - name: 📁 List Angular build output
-        run: ls -la dist/api-apuestas  # Asegúrate de que esta ruta sea correcta
+        run: ls -la dist/api-apuestas/browser
 
       - name: 🐳 Build Docker image with NGINX
         run: docker build -t ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }} .
-
 
       - name: 🧱 List Docker images
         run: docker images
 
       - name: 🔐 Docker login
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKER_USER }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
+        env:
+          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 
       - name: 🚀 Push Docker image
         run: docker push ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }}
