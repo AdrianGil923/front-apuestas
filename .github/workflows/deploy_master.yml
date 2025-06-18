@@ -30,7 +30,7 @@ jobs:
         run: npm run build --prod
 
       - name: 📁 List Angular build output
-        run: ls -la dist/api-apuestas  # Ruta correcta aquí
+        run: ls -la dist/api-apuestas  # Asegúrate de que esta ruta sea correcta
 
       - name: 🐳 Build Docker image with NGINX
         run: docker build -t ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }} .
