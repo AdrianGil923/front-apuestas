@@ -30,7 +30,7 @@ jobs:
         run: npm run build --prod
 
       - name: 📁 List Angular build output
-        run: ls -la dist/api-apuestas/browser
+        run: ls -la dist/api-apuestas  # Se eliminó el 'browser' porque no existe esa subcarpeta
 
       - name: 🐳 Build Docker image with NGINX
         run: docker build -t ${{ secrets.DOCKER_USER }}/api-apuestas-angular:${{ github.sha }} .
