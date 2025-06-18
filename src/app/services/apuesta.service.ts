@@ -12,7 +12,7 @@ import { ApuestaReaction } from '../models/apuestas/ApuestaReaction';
   providedIn: 'root',
 })
 export class ApuestaService {
-  apiURL = 'https://apuestas-spring.onrender.com';
+  apiURL = 'https://apuestas-spring.onrender.com/';
   token = '';
 
   constructor(
@@ -64,7 +64,7 @@ export class ApuestaService {
   }
 
   getReaccionMasVotada(apuestaId: number): Observable<string> {
-  return this.http.get(`https://apuestas-spring.onrender.com/api/reactions/most-voted/${apuestaId}`, {
+  return this.http.get(this.apiURL+`api/reactions/most-voted/${apuestaId}`, {
         responseType: 'text'
     });
   }
@@ -78,7 +78,7 @@ export class ApuestaService {
       .pipe(catchError(this.handleError));
   }
   buscarApuestas(termino: string): Observable<Apuesta[]> {
-    return this.http.get<Apuesta[]>(`https://apuestas-spring.onrender.com/api/apuesta/buscar?termino=${termino}`);
+    return this.http.get<Apuesta[]>(this.apiURL+`api/apuesta/buscar?termino=${termino}`);
   }
   deleteApuesta(id: number): Observable<any> {
     return this.http.delete(
