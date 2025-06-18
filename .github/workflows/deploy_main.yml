@@ -3,7 +3,7 @@ name: CI/CD Deploy Angular Docker
 on: 
   push:
     branches: [ "master" ]
-
+ 
 jobs:
   ci_cd_deploy_angular:
     runs-on: ubuntu-latest
